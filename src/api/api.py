@@ -12,7 +12,7 @@ def make_wsgi_app(spreadsheet_worker: SpreadsheetWorker):
     def get_summary():
         response.headers['Content-Type'] = 'application/json'
         response.headers['Cache-Control'] = 'no-cache'
-        summary = spreadsheet_worker.read_summary()
+        summary = spreadsheet_worker.get_summary()
         return json.dumps(summary)
 
     return app
